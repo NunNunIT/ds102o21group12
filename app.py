@@ -1,8 +1,8 @@
 from flask import Flask, request, render_template_string, jsonify, url_for, current_app
 import requests
 import os
-os.environ['CUDA_VISIBLE_DEVICES']='-1'
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+# os.environ['CUDA_VISIBLE_DEVICES']='-1'
+# os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import tensorflow as tf
 
 # Init
@@ -26,7 +26,7 @@ from tensorflow.keras.layers import SpatialDropout1D, Conv1D, GlobalAveragePooli
 from tensorflow.keras.preprocessing.text import tokenizer_from_json
 
 def getLable(data):
-    os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+    # os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
     input_string = data
 
     df = pd.read_csv('./abbreviation_dictionary_vn.csv')
