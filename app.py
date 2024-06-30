@@ -1,13 +1,13 @@
 from flask import Flask, request, render_template_string, jsonify, url_for, current_app
 import requests
 import os
-# os.environ['CUDA_VISIBLE_DEVICES']='-1'
-# os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+os.environ['CUDA_VISIBLE_DEVICES']='-1'
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import tensorflow as tf
 
 # Init
-# tf.compat.v1.enable_eager_execution()
-# session = tf.compat.v1.Session()
+tf.compat.v1.enable_eager_execution()
+session = tf.compat.v1.Session()
 
 # Bắt đầu Code của Tân
 import json
@@ -256,14 +256,6 @@ def home():
             else:
                 return None
             
-        def evaluate_other(value):
-            if value == 1:
-                return "True"
-            elif value == -1:
-                return "False"
-            else:
-                return None
-        
         evaluations = {
             "text": label,
             "result": {
@@ -272,9 +264,15 @@ def home():
                 "Environment": evaluate_value(data.get('Environment', -1)),
                 "Clean": evaluate_value(data.get('Clean', -1)),
                 "Personal": evaluate_value(data.get('Personal', -1)),
-                "Other": evaluate_other(data.get('Other', -1))
             }
         }
+
+        # Check if all five variables are None
+        if all(value is None for value in evaluations["result"].values()):
+            evaluations["result"]["Other"] = "True"
+        else:
+            evaluations["result"]["Other"] = "False"
+
         result = {k: v for k, v in evaluations.items() if v is not None}
     
     return render_template_string('''
@@ -360,7 +358,7 @@ def home():
                     {% if result %}
                         <div style="padding: 0.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; align-items: center; justify-content: center;">
                             {% for key, value in result.result.items() %}
-                                <div style="padding: 0.75rem; height: 6rem; position: relative; overflow: hidden; background-color: {{ '#dc2626' if value == 'Negative' else '#84cc16' if value == 'Positive' else '#facc15' if value == 'Neutral' else '#a1a1aa' }}; border-radius: 0.5rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1);">
+                                <div style="padding: 0.75rem; height: 6rem; position: relative; overflow: hidden; background-color: {{ '#dc2626' if value == 'Negative' else '#84cc16' if value == 'Positive' else '#84cc16' if value == 'True' else '#facc15' if value == 'Neutral' else '#a1a1aa' }}; border-radius: 0.5rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1);">
                                     <svg style="position: absolute; bottom: 0; left: 0; margin-bottom: 2rem; transform: scale(1.5); opacity: 0.1;" viewBox="0 0 375 283" fill="none">
                                         <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white" />
                                         <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
