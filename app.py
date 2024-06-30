@@ -6,8 +6,8 @@ import os
 import tensorflow as tf
 
 # Init
-tf.compat.v1.enable_eager_execution()
-session = tf.compat.v1.Session()
+# tf.compat.v1.enable_eager_execution()
+# session = tf.compat.v1.Session()
 
 # Bắt đầu Code của Tân
 import json
