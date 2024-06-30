@@ -1,0 +1,16 @@
+click
+gunicorn
+importlib-metadata
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+zipp
+Flask
+joblib
+keras
+numpy
+pandas
+scikit_learn
+tensorflow
+django
