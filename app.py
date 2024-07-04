@@ -500,10 +500,11 @@ def home():
                         </div>
                     </div>
                                   
-                    {% if text_goc %}
                         <h3 class="textContainer" >Bình luận đang xét:</h3>
-                        <p class="textContainer" style="font-size: 2.5rem; text-align: left; color: white">{{ text_goc }}</p>
-                    {% endif %}
+                        {% if text_goc %}
+                        <p class="textContainer2" style="font-size: 2.5rem; text-align: left; color: white">{{ text_goc }}</p>                                 
+                        {% endif %}         
+                        <p class="textContainer2" style="font-size: 2.5rem; text-align: left; color: white"></p>
                     </div>
                 </div>
                 
@@ -576,6 +577,11 @@ def home():
             </div>
         <script>
             document.getElementById('myForm').addEventListener('submit', function() {
+                var formData = new FormData(event.target); // Get form data
+                var textInput = formData.get('data');
+                document.querySelector('.textContainer2').style.display = 'block';
+                document.querySelector('.textContainer2').textContent = textInput;               
+                                  
                 document.querySelectorAll('.loading').forEach(function(element) {
                     element.style.display = 'block'; // Show all elements with class 'loading'
                 });
@@ -586,6 +592,7 @@ def home():
                 document.querySelectorAll('.resultContainer').forEach(function(element) {
                     element.style.display = 'none'; // Hide all elements with class 'resultContainer'
                 });
+                
             });
         </script>
         </body>
