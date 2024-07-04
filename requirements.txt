@@ -14,3 +14,8 @@ pandas
 scikit_learn
 tensorflow
 django
+catboost
+lightgbm
+scikit-learn == 1.2.2
+py_vncorenlp
+jpype1
