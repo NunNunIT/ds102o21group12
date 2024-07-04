@@ -5,7 +5,8 @@ import os
 os.environ['CUDA_VISIBLE_DEVICES']='-1'
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import sys
-sys.path.append('./')
+path = os.path.abspath(".")
+# sys.path.append('.')
 import tensorflow as tf
 
 # Init
@@ -13,7 +14,7 @@ tf.compat.v1.enable_eager_execution()
 session = tf.compat.v1.Session()
 
 #Thay đổi cái này
-path = "E:/ASTUDY/HK6/SML/DOAN/ds102o21group12"
+# path = "."
 
 #######################################################################################################
 # MODEL SVM
