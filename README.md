@@ -1,10 +1,18 @@
 # Các lưu ý trước khi chạy ứng dụng
-Do giới hạn 1GB băng thông của chính sách Git LFS (bản free) nên file ```embedding_matrix.csv``` và file ```svm_model.pkl``` thường không được clone về cùng.
+1. Do giới hạn 1GB băng thông của chính sách Git LFS (bản free) nên file ```embedding_matrix.csv``` và file ```svm_model.pkl``` thường không được clone về cùng.
 
 Vì vậy, sau khi clone repo về, kiểm tra trong thư mục Model_SVM có đầy đủ các 5 file này hay không 
 ![image](https://github.com/NunNunIT/ds102o21group12/assets/145759907/708ae8d3-280b-4fa0-9bc7-46a996907911)
 
 Nếu không đầy đủ, truy cập vào https://drive.google.com/drive/folders/1BOrByYy9RzsR5SLVXcgakibflR11X9T9 và tải bổ sung các file về thư mục Model_SVM
+
+2. Kiểm tra xem thư mục ```Model_ENSEMBLE/VnCoreNLP``` có các file như dưới đây không
+![image](https://github.com/NunNunIT/ds102o21group12/assets/145759907/47d571a2-9580-4a13-b0e9-aa3a5391483b)
+
+Nếu như thư mục rỗng, thì tại thư mục ```Model_ENSEMBLE```, clone repo này về để bổ sung
+```
+git clone https://github.com/vncorenlp/VnCoreNLP.git
+```
 
 # Hướng dẫn cài đặt và chạy ứng dụng
 
