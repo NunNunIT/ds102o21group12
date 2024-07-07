@@ -509,7 +509,7 @@ def home():
                 </div>
                 
                 <div style="position: sticky; top: 0; right: 0; padding: 0 1.5rem; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 1rem; justify-content: flex-start; height: fit-content;"> 
-                    <h2 style="color: white;">Model SVM:</h2>
+                    <h2 style="color: white;">Model SVM + ELMo:</h2>
 
                     <div style="height: 30vh; padding: 0.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; align-items: center; justify-content: center;">
                     <div class="loading">       
@@ -541,7 +541,7 @@ def home():
                         {% endif %}
                     </div>
 
-                    <h2 style="color: white;">Model ENSEMBLE:</h2>
+                    <h2 style="color: white;">Model ENSEMBLE + VnCoreNLP + TF-IDF Vectorizer:</h2>
                                   
                     <div style="height: 30vh; padding: 0.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; align-items: center; justify-content: center;">
                         <div class="loading">       
