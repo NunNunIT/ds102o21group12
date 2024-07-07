@@ -43,5 +43,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
+Sử dùng trình duyệt bất kỳ, truy cập ```http://127.0.0.1:5000```
+
 Hình ảnh trực quan hóa
 ![alt text](img/1.png) ![alt text](img/2.png) ![alt text](img/3.png) ![alt text](img/4.png) ![alt text](img/6.png) ![alt text](img/5.png) ![alt text](img/7.png) ![alt text](img/8.png)
